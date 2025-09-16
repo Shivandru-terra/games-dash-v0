@@ -719,7 +719,7 @@ const DocViewer = () => {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex flex-1 flex-col p-4">
+        <div className="flex flex-col w-[80%] p-4">
           {!fileName && <p>Select a file to see details</p>}
           {fileName && (
             <div className="flex items-center justify-center gap-4">
@@ -745,7 +745,7 @@ const DocViewer = () => {
             </div>
           )}
           {!isEditing && fileName && (
-            <div className="max-h-[65vh] w-[47vw] space-y-4 pt-4 overflow-y-auto overflow-x-auto pr-3">
+            <div className="max-h-[65vh] space-y-4 pt-4 overflow-y-auto overflow-x-auto pr-3">
               <div className="p-4 rounded-lg markdown-body">
                 {(() => {
                   const content = fileContent?.content ?? "";
