@@ -22,7 +22,7 @@ const AppLayout = ({children}: {children: React.ReactNode}) => {
     const { data: delQueueData } = useGetallDelQueue();
     const { data: archiveData } = useArchive();
     const { mutate: rejectDelQueue} = useRejectDelQueue();
-    const { mutate: delDeleteQueueEle } = useDeleteDelQueue(selectedGame || "");
+    const { mutate: delDeleteQueueEle } = useDeleteDelQueue();
     const [editingFileId, setEditingFileId] = useState<string | null>(null);
     const [tempName, setTempName] = useState("");
     const { mutate: renameFile } = useRenameFile(selectedGame || "");
@@ -37,8 +37,8 @@ const AppLayout = ({children}: {children: React.ReactNode}) => {
     restoreMutation.mutate({ fileId, gameId });
   }
 
-  function handleDeleteDelQueue(requestId: string) {
-    delDeleteQueueEle(requestId);
+  function handleDeleteDelQueue(requestId: string, gameId: string) {
+    delDeleteQueueEle({requestId, gameId});
   }
 
   const handleLogout = () => {
@@ -94,7 +94,7 @@ const AppLayout = ({children}: {children: React.ReactNode}) => {
                         <Card
                           key={el.requestId}
                           className="mb-4 border border-border/30 shadow-sm hover:shadow-md transition-shadow"
-                          onClick={() => setSelectedGame(el.gameName)}
+                          // onClick={() => setSelectedGame(el.gameName)}
                         >
                           <CardHeader>
                             <CardTitle className="text-sm font-semibold">
@@ -128,7 +128,7 @@ const AppLayout = ({children}: {children: React.ReactNode}) => {
                               size="sm"
                               variant="destructive"
                               className=""
-                              onClick={() => handleDeleteDelQueue(el.requestId)}
+                              onClick={() => handleDeleteDelQueue(el.requestId, el.gameName)}
                             >
                               <Trash2 className="w-3 h-3 mr-1" />
                               Delete

@@ -20,12 +20,18 @@ export function useCreateDelQueue(){
     })
 }
 
-export function useDeleteDelQueue(gameId: string){
+
+interface DeleteDelQueueVars {
+  requestId: string;
+  gameId: string;
+}
+export function useDeleteDelQueue(){
     const queryClient = useQueryClient();
-    return useMutation({
+    return useMutation<void, unknown, DeleteDelQueueVars>({
         mutationKey: ["delete-delQueue"],
-        mutationFn: ( requestId: string ) => deleteQueueService.delDeleteQueue(requestId),
-        onSuccess: () => {
+        mutationFn: ({ requestId }: DeleteDelQueueVars) => deleteQueueService.delDeleteQueue(requestId),
+        onSuccess: (_data, variables) => {
+            const { gameId } = variables;
             queryClient.invalidateQueries({queryKey: ["delQueue"]});
             queryClient.invalidateQueries({queryKey: ["gcp-meta", gameId]});
             queryClient.invalidateQueries({
