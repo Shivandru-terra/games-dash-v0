@@ -1,0 +1,127 @@
+@import "github-markdown-css/github-markdown.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AI Narrative Platform Design System - Professional, modern, tech-focused */
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@layer base {
+  :root {
+    /* Core backgrounds */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    /* Surface colors */
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 5% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Brand colors - Deep purple/blue tech theme */
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 263 70% 65%;
+
+    /* Secondary accent - Cyan for highlights */
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 240 10% 3.9%;
+
+    /* Subtle surfaces */
+    --muted: 240 5% 6%;
+    --muted-foreground: 240 5% 65%;
+
+    /* Interactive elements */
+    --accent: 240 5% 6%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 70% 45%;
+    --warning: 38 92% 50%;
+
+    /* Form elements */
+    --border: 240 5% 11%;
+    --input: 240 5% 11%;
+    --ring: 263 70% 50%;
+
+    /* Design tokens */
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%), hsl(263 70% 65%));
+    --gradient-surface: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 5% 6%));
+    --gradient-glow: linear-gradient(90deg, hsl(263 70% 50% / 0.1), hsl(180 100% 50% / 0.1));
+
+    /* Shadows */
+    --shadow-primary: 0 10px 40px hsl(263 70% 50% / 0.3);
+    --shadow-surface: 0 4px 20px hsl(240 10% 3.9% / 0.5);
+    --shadow-glow: 0 0 30px hsl(263 70% 50% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Global dark scrollbars */
+
+/* Chrome, Edge, Safari */
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #0a0a0a; /* dark track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #444; /* gray thumb */
+  border-radius: 8px;
+  border: 2px solid #0a0a0a; /* makes it look inset */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/* Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #0a0a0a; /* thumb | track */
+}
