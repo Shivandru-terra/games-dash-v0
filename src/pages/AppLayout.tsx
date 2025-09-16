@@ -90,11 +90,11 @@ const AppLayout = ({children}: {children: React.ReactNode}) => {
                   </DialogTrigger>
                   <DialogContent className="border border-border/50 bg-card rounded-2xl shadow-xl max-h-[70vh] overflow-y-auto">
                     {delQueueData?.length  ? (
-                      delQueueData.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())?.map((el) => (
+                      delQueueData?.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())?.map((el) => (
                         <Card
                           key={el.requestId}
                           className="mb-4 border border-border/30 shadow-sm hover:shadow-md transition-shadow"
-                          // onClick={() => setSelectedGame(el.gameName)}
+                          onClick={() => setSelectedGame(el.gameName)}
                         >
                           <CardHeader>
                             <CardTitle className="text-sm font-semibold">
