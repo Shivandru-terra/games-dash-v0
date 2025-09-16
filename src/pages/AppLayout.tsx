@@ -74,7 +74,7 @@ const AppLayout = ({children}: {children: React.ReactNode}) => {
                 <Dialog>
                   <DialogTrigger asChild>
                     {
-                    // ADMINS.includes(userId) && 
+                    ADMINS.includes(userId) && 
                     <div className="relative inline-block">
                       <Button
                         size="sm"
@@ -151,7 +151,7 @@ const AppLayout = ({children}: {children: React.ReactNode}) => {
                 <Dialog>
                   <DialogTrigger asChild>
                     { 
-                    // ADMINS.includes(userId) &&
+                    ADMINS.includes(userId) &&
                      <div className="relative inline-block">
                       <Button
                         variant="outline"
